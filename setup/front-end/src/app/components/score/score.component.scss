@@ -11,6 +11,23 @@
     animation-iteration-count: infinite;
 }
 
+#results div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: brown;
+}
+
+#results p,h3{
+    text-align: center
+}
+
+#results img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }
     10% { transform: translate(-1px, -2px) rotate(-3deg); }

@@ -1,8 +1,8 @@
 export function parseUrl() {
   
     const url = window.location.href;
-    var query = url.split('?')[1] || '';
-    var delimiter = '&';
+    const query = url.split('?')[1] || '';
+    const delimiter = '&';
     return query.split(delimiter).map(function (p) {
       return p.split('=');
     }).reduce(function (acc, kv) {

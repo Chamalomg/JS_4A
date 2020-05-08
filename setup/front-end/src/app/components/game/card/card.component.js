@@ -63,20 +63,17 @@ import './card.component.scss';
         }
     });
 
-    var environment = {
+    const environment = {
         api: {}
     };
     Object.defineProperties(environment.api, {
         host: {
             get: function () {
                 debugger
-                throw new Error(atob('VG9vIGJhZCEgV2l0aG91dCBjbG9zdXJlLCBJIGNhbiBjb2xsaWRlIGJ5IG1pc3Rha2VzICB3aXRoIGdsb2JhbCB2YXJpYWJsZXMgdGhhdCBoYXZlIGJlZW4gc2V0IGluIGFub3RoZXIgZmlsZQ'));
+                throw new Error(atob('VG9vIGJhZCEgV2l0aG91dCBjbG9zdXJlLCBJIGNhbiBjb2xsaWRlIGJ5IG\
+                1pc3Rha2VzICB3aXRoIGdsb2JhbCB2YXJpYWJsZXMgdGhhdCBoYXZlIGJlZW4gc2V0IGluIGFub3RoZXIgZmlsZQ'));
             }
         }
     });
-
-
-    // put component in global scope, tu be runnable right from the HTML.
-    // TODO Step 6 export CardComponent
     window.CardComponent = CardComponent;
 

@@ -1,4 +1,3 @@
-// TODO Step 6 import "./game.component.html"
 import { parseUrl} from '../../utils/utils';
 import {Component} from '../../utils/component';
 
@@ -6,9 +5,7 @@ import template from './game.component.html';
 import {CardComponent} from './card/card.component';
 
 
-
-
-    var environment = {
+    const environment = {
         api: {
             host: 'http://localhost:8081'
         }
@@ -20,7 +17,7 @@ import {CardComponent} from './card/card.component';
         // gather parameters from URL
         constructor() {
             super('game');
-            var params = parseUrl();
+            const params = parseUrl();
 
             // save player name & game ize
             this._name = params.name;
@@ -33,16 +30,6 @@ import {CardComponent} from './card/card.component';
             // fetch the cards configuration from the server
             
             this._config =  await this.fetchConfig();
-            //    this._cards = []; // TODO Step 3.3: use Array.map()
-            //  for (var i in this._config.ids) {
-            //    this._cards[i] = new CardComponent(this._config.ids[i]);
-            //}
-
-            // create a card out of the config
-            //this._config.ids.forEach((id,i)=> 
-            //{
-            //    this._cards[i]= new CompositionEvent(id)
-            //});
 
             this._cards = this._config.ids.map(id => new CardComponent(id) );
 
@@ -53,22 +40,14 @@ import {CardComponent} from './card/card.component';
                 id.getElement().addEventListener('click',  ()=> { this._flipCard(id) });
                 
             });
-
-            //for (var i in this._cards) { // TODO Step 3.3: use Array.forEach()
-            //    ( () =>{
-            //        var card = this._cards[i];    card qui prend chaque élement de la arraylist
-            //        this._boardElement.appendChild(card.getElement());    
-            //        card.getElement().addEventListener('click', function () { this._flipCard(card) }.bind(this)); // TODO use arrow function.
-            //    })();
-            //    }
-
+            
             this.start();
             
             }
 
         start() {
             this._startTime = Date.now();
-            var seconds = 0;
+            let seconds = 0;
 
             document.querySelector('nav .navbar-title').textContent = `Player: ${this._name} . Elapsed time:  ${seconds++} `;
 
@@ -83,7 +62,6 @@ import {CardComponent} from './card/card.component';
             let timeElapsedInSeconds = Math.floor((Date.now() - this._startTime) / 1000);
             clearInterval(this._timer);
             const fn = () => {
-
                 window.location.hash =`score?name=${this._name}&size=${this._size}&time=${timeElapsedInSeconds}`;
             }
             setTimeout(fn, 750);
@@ -149,16 +127,6 @@ import {CardComponent} from './card/card.component';
             }
         }
 
-
-
     }
-
-
-
-    // TODO Step 6 implement getTemplate() {}
-
-    // put component in global scope, tu be runnable right from the HTML.
-    // TODO Step 6: export GameComponent
- //   window.GameComponent = GameComponent;
 
 

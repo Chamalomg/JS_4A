@@ -7,20 +7,16 @@ import './score.component.scss';
         constructor()
         {
         super('score');
-        var params = parseUrl();
+        const params = parseUrl();
         this.name = params.name;
         this.size = parseInt(params.size);
         this.time = parseInt(params.time);
-
-
         }
 
         async init() {
             document.getElementById('name').innerText = this.name;
             document.getElementById('size').innerText = this.size;
             document.getElementById('time').innerText = this.time;
-            
-
         }
 
         getTemplate() { return template; }
